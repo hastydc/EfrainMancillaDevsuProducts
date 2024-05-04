@@ -43,53 +43,55 @@
     </thead>
     <tbody>
       @if (loading) {
-      <tr>
-        @for (item of [1, 2, 3, 4, 5]; track item) {
-        <td class="table__td">
-          <span class="table__skeleton"></span>
-        </td>
-        }
-      </tr>
+        <tr>
+          @for (item of [1, 2, 3, 4, 5]; track item) {
+            <td class="table__td">
+              <span class="table__skeleton"></span>
+            </td>
+          }
+        </tr>
       } @else if (!products().length) {
-      <tr>
-        <td class="table__td" colspan="6">
-          {{ 'productsNotFound' | translate }}
-        </td>
-      </tr>
-      } @else { @for (product of products(); track product.id) {
-      <tr>
-        <td class="table__td">
-          <div class="table__td-logo-wrapper">
-            <img
-              class="table__td-logo"
-              [src]="product.logo"
-              [alt]="'logo' | translate"
-              onerror="this.src='assets/images/icon-img.svg'"
-            />
-          </div>
-        </td>
-        <td class="table__td">
-          <span class="table__td-text">{{ product.name }}</span>
-        </td>
-        <td class="table__td">
-          <span class="table__td-text">{{ product.description }}</span>
-        </td>
-        <td class="table__td">
-          <span class="table__td-text">{{ product.date_release }}</span>
-        </td>
-        <td class="table__td">
-          <span class="table__td-text">{{ product.date_revision }}</span>
-        </td>
-        <td class="table__td">
-          <span class="table__td-action">
-            <app-action-menu
-              [product]="product"
-              (deleteAction)="deleteProduct($event)"
-            />
-          </span>
-        </td>
-      </tr>
-      } }
+        <tr>
+          <td class="table__td" colspan="6">
+            {{ 'productsNotFound' | translate }}
+          </td>
+        </tr>
+      } @else {
+        @for (product of products(); track product.id) {
+          <tr>
+            <td class="table__td">
+              <div class="table__td-logo-wrapper">
+                <img
+                  class="table__td-logo"
+                  [src]="product.logo"
+                  [alt]="'logo' | translate"
+                  onerror="this.src='assets/images/icon-img.svg'"
+                />
+              </div>
+            </td>
+            <td class="table__td">
+              <span class="table__td-text">{{ product.name }}</span>
+            </td>
+            <td class="table__td">
+              <span class="table__td-text">{{ product.description }}</span>
+            </td>
+            <td class="table__td">
+              <span class="table__td-text">{{ product.date_release }}</span>
+            </td>
+            <td class="table__td">
+              <span class="table__td-text">{{ product.date_revision }}</span>
+            </td>
+            <td class="table__td">
+              <span class="table__td-action">
+                <app-action-menu
+                  [product]="product"
+                  (deleteAction)="deleteProduct($event)"
+                />
+              </span>
+            </td>
+          </tr>
+        }
+      }
     </tbody>
   </table>
 </div>

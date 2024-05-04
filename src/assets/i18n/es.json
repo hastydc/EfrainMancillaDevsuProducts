@@ -27,5 +27,6 @@
   "productsNotFound": "No se encontraron productos",
   "restart": "Reiniciar",
   "cancel": "Cancelar",
-  "send": "Enviar"
+  "send": "Enviar",
+  "revisionDate": "Fecha de Revisión"
 }

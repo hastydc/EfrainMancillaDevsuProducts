@@ -26,7 +26,7 @@ export const getInputs = (): InputData[] => [
   },
   {
     key: ProductFormKey.RESTRUCTURING_DATE,
-    label: 'restructuringDate',
+    label: 'revisionDate',
     inputType: InputType.DATE,
   },
 ];
