@@ -1,0 +1,10 @@
+<ng-container [formGroup]="form" *ngIf="form && key">
+  <input
+    type="text"
+    class="input"
+    [ngClass]="{
+      'input--error': form.controls[key].invalid && form.controls[key].touched
+    }"
+    [formControlName]="key"
+  />
+</ng-container>

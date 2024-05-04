@@ -1,0 +1,30 @@
+<div class="action-menu" (click)="toggleActions()">
+  <span class="action-menu__dot"></span>
+  <span class="action-menu__dot"></span>
+  <span class="action-menu__dot"></span>
+
+  <ul
+    class="action-menu__items"
+    [ngClass]="{ 'action-menu__items--visible': showActions }"
+  >
+    <li class="action-menu__item" (click)="goToEdit()">
+      {{ 'edit' | translate }}
+    </li>
+    <li class="action-menu__item" (click)="showModal()">
+      {{ 'delete' | translate }}
+    </li>
+  </ul>
+</div>
+
+<ng-template cdkPortal>
+  <app-modal (cancelEvent)="closeModal()" (confirmEvent)="deleteProduct()">
+    <ng-container class="modal-text">
+      {{
+        'areYouSureToDeleteTheProduct'
+          | translate: { productName: product.name }
+      }}
+    </ng-container>
+  </app-modal>
+</ng-template>
+
+<app-toast />

@@ -1,0 +1,20 @@
+<div class="table-footer">
+  <div class="table-footer__results">
+    {{ 'numberOfResults' | translate: { results: results } }}
+  </div>
+
+  <div class="table-footer__paginator">
+    <select
+      class="table-footer__select"
+      [disabled]="loading"
+      [(ngModel)]="value"
+      (ngModelChange)="setPaginator()"
+    >
+      @for (value of paginator; track value) {
+        <option [value]="value">
+          {{ value }}
+        </option>
+      }
+    </select>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+@import 'vars'
+
+.tooltip
+  position: relative
+  
+  &__text
+    position: absolute
+    right: -84px
+    top: -28px
+    margin: auto
+    background: $grayDark
+    color: $white
+    font-size: 12px
+    padding: 4px
+    text-align: center
+    border-radius: 4px
+    visibility: hidden
+    width: 160px
+    transition: $transition
+
+  &__icon
+    color: $white
+    border-radius: 100%
+    background: $grayDark
+    width: 12px
+    height: 12px
+    padding: 2px
+    text-align: center
+    font-size: 10px
+    cursor: pointer
+
+  &:hover &
+    &__text
+      visibility: visible

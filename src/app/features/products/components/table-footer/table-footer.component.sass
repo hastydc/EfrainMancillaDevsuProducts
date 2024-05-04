@@ -1,0 +1,35 @@
+@import 'vars'
+@import 'mixins'
+
+.table-footer
+  font-weight: 600
+  font-size: 16px
+  display: flex
+  flex-direction: row
+  box-sizing: border-box
+  padding: 36px
+  background-color: $white
+  position: relative
+
+  &::after
+    content: ''
+    width: calc(100% - 72px)
+    height: 2px
+    margin: 0 auto
+    position: absolute
+    top: 4px
+    background-color: rgba($grayDark, 0.1)
+
+  &__results
+    flex: 1 
+
+  &__select
+    border: 2px solid rgba($grayDark, 0.5)
+    border-radius: 8px
+    box-sizing: border-box
+    padding: 4px 16px
+    cursor: pointer
+
+  @include mq('mobile')
+    flex-direction: column
+    gap: 16px

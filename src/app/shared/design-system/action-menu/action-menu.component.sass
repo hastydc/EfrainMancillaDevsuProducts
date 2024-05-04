@@ -1,0 +1,40 @@
+@import 'vars'
+
+.action-menu
+  display: flex
+  flex-direction: column
+  gap: 2px
+  cursor: pointer
+  position: relative
+  width: 12px
+  align-items: center
+
+  &__dot
+    background-color: $grayDark
+    width: 6px
+    height: 6px
+    border-radius: 100%
+
+  &__items
+    position: absolute
+    list-style-type: none
+    padding: 0
+    margin: 0
+    top: 100%
+    right: 0%
+    visibility: hidden
+    background-color: $white
+
+    &--visible
+      visibility: visible
+
+  &__item
+    font-size: 16px
+    box-sizing: border-box
+    padding: 4px 
+    cursor: pointer
+    transition: $transition
+    font-weight: 700
+
+    &:hover
+      background-color: $blueLight

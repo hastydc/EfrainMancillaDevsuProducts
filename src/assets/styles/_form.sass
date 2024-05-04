@@ -1,0 +1,63 @@
+@import 'vars'
+@import 'mixins'
+
+.form
+  background: $white
+  
+  &__inputs
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-gap: 0px
+
+  &__title
+    text-align: center
+    font-size: 48px
+    border-bottom: 2px solid $grayDark
+    box-sizing: border-box
+    padding: 32px
+    margin: 0 auto
+
+  &__content
+    padding: 12px 32px
+    box-sizing: border-box
+
+  &__fieldset
+    border: 0
+    min-height: 117px
+    padding: 0px 8px
+
+  &__label,
+  &__error
+    font-weight: 700
+    font-size: 12px
+    padding: 6px 0px
+    display: flex
+
+  &__label
+    &--error
+      color: $red
+
+  &__error
+    color: $red
+
+  &__buttons
+    display: flex
+    flex-direction: row
+    gap: 32px
+    margin: 64px auto 32px
+    justify-content: center
+
+  &__button
+    width: 200px
+
+  @include mq('mobile')
+    &__inputs
+      grid-template-columns: repeat(1, 1fr)
+
+    &__buttons
+      flex-direction: column
+      gap: 16px
+      margin-top: 32px
+
+    &__button
+      width: 100%

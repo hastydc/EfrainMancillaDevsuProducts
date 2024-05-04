@@ -1,0 +1,101 @@
+<app-table-header [loading]="loading" (setSearchAction)="setSearch($event)" />
+
+<div class="table-wrapper">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="table__th table__th--logo">
+          <span class="table__th-text">
+            {{ 'logo' | translate }}
+          </span>
+        </th>
+        <th class="table__th">
+          <span class="table__th-text">
+            {{ 'productName' | translate }}
+          </span>
+        </th>
+        <th class="table__th">
+          <div class="table__th-content">
+            <span class="table__th-text">
+              {{ 'description' | translate }}
+            </span>
+            <app-tooltip [text]="'description'" />
+          </div>
+        </th>
+        <th class="table__th">
+          <div class="table__th-content">
+            <span class="table__th-text">
+              {{ 'releaseDate' | translate }}
+            </span>
+            <app-tooltip [text]="'releaseDate'" />
+          </div>
+        </th>
+        <th class="table__th">
+          <div class="table__th-content">
+            <span class="table__th-text">
+              {{ 'restructuringDate' | translate }}
+            </span>
+            <app-tooltip [text]="'restructuringDate'" />
+          </div>
+        </th>
+        <th class="table__th table__th--actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (loading) {
+      <tr>
+        @for (item of [1, 2, 3, 4, 5]; track item) {
+        <td class="table__td">
+          <span class="table__skeleton"></span>
+        </td>
+        }
+      </tr>
+      } @else if (!products().length) {
+      <tr>
+        <td class="table__td" colspan="6">
+          {{ 'productsNotFound' | translate }}
+        </td>
+      </tr>
+      } @else { @for (product of products(); track product.id) {
+      <tr>
+        <td class="table__td">
+          <div class="table__td-logo-wrapper">
+            <img
+              class="table__td-logo"
+              [src]="product.logo"
+              [alt]="'logo' | translate"
+              onerror="this.src='assets/images/icon-img.svg'"
+            />
+          </div>
+        </td>
+        <td class="table__td">
+          <span class="table__td-text">{{ product.name }}</span>
+        </td>
+        <td class="table__td">
+          <span class="table__td-text">{{ product.description }}</span>
+        </td>
+        <td class="table__td">
+          <span class="table__td-text">{{ product.date_release }}</span>
+        </td>
+        <td class="table__td">
+          <span class="table__td-text">{{ product.date_revision }}</span>
+        </td>
+        <td class="table__td">
+          <span class="table__td-action">
+            <app-action-menu
+              [product]="product"
+              (deleteAction)="deleteProduct($event)"
+            />
+          </span>
+        </td>
+      </tr>
+      } }
+    </tbody>
+  </table>
+</div>
+
+<app-table-footer
+  [loading]="loading"
+  [results]="products().length"
+  (setPaginatorAction)="setPaginator($event)"
+/>

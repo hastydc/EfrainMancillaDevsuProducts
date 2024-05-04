@@ -1,0 +1,11 @@
+<div class="table-header">
+  <div class="table-header__input">
+    <app-input-search
+      (setValueAction)="setSearch($event)"
+      [disabled]="loading"
+    />
+  </div>
+  <div class="table-header__button">
+    <app-button [label]="'add'" (actionEvent)="goToAdd()" />
+  </div>
+</div>

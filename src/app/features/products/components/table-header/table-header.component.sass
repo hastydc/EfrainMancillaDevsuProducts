@@ -1,0 +1,24 @@
+@import 'vars'
+@import 'mixins'
+
+.table-header
+  display: flex
+  flex-direction: row
+  align-items: center
+  
+  &__input
+    flex: 1
+
+  &__button
+    width: 150px
+
+  @include mq('mobile')
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    gap: 16px
+
+    &__input,
+    &__button
+      width: 75%
+      flex: inherit

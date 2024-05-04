@@ -1,0 +1,94 @@
+<div class="form">
+  <app-loading [loading]="loading" />
+  <h1 class="form__title">{{ title | translate }}</h1>
+
+  <form class="form__content" [formGroup]="form" *ngIf="form">
+    <div class="form__inputs">
+      @for (inputData of inputs; track inputData.label) {
+        <ng-container
+          *ngTemplateOutlet="fieldset; context: { data: inputData }"
+        />
+      }
+    </div>
+
+    <div class="form__buttons">
+      <div class="form__button">
+        <app-button
+          [label]="'restart'"
+          [primary]="false"
+          (actionEvent)="restart()"
+        />
+      </div>
+
+      <div class="form__button">
+        <app-button
+          [disabled]="form.invalid || !form.touched || (!isAdd && !product?.id)"
+          [label]="'send'"
+          [mask]="true"
+          (actionEvent)="save()"
+        />
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #fieldset let-data="data">
+  <fieldset class="form__fieldset">
+    <label
+      class="form__label"
+      [ngClass]="{
+        'form__label--error':
+          form.controls[data.key].invalid && form.controls[data.key].touched
+      }"
+    >
+      {{ data.label | translate }}
+    </label>
+
+    <div class="form__input">
+      @if (
+        [productKey.RESTRUCTURING_DATE, productKey.RELEASE_DATE].includes(
+          data.key
+        )
+      ) {
+        <app-input-date [form]="form" [key]="data.key" />
+      } @else {
+        <app-input-text [form]="form" [key]="data.key" />
+      }
+    </div>
+
+    <div
+      class="form__error"
+      *ngIf="form.controls[data.key].invalid && form.controls[data.key].touched"
+    >
+      @if (form.controls[data.key].errors?.['required']) {
+        {{ 'fieldIsNotValid' | translate: { field: (data.label | translate) } }}
+      } @else if (form.controls[data.key].errors?.['minlength']) {
+        {{
+          'theFieldMustHaveMinCharacters'
+            | translate
+              : {
+                  min: form.controls[data.key].errors?.['minlength'][
+                    'requiredLength'
+                  ]
+                }
+        }}
+      } @else if (form.controls[data.key].errors?.['maxlength']) {
+        {{
+          'theFieldMustHaveMaxCharacters'
+            | translate
+              : {
+                  max: form.controls[data.key].errors?.['maxlength'][
+                    'requiredLength'
+                  ]
+                }
+        }}
+      } @else if (form.controls[data.key].errors?.['notAvailable']) {
+        {{
+          'fieldIsNotAvailable' | translate: { field: (data.label | translate) }
+        }}
+      } @else {
+        {{ 'invalid' | translate }}
+      }
+    </div>
+  </fieldset>
+</ng-template>

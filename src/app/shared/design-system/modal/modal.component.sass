@@ -1,0 +1,40 @@
+@import 'vars'
+
+:host
+  width: 100%
+
+.modal
+  background-color: $white
+  display: flex
+  flex-direction: column
+  padding: 36px
+  border-radius: 8px
+
+  &__text
+    font-weight: 600
+    font-size: 24px
+    min-height: 100px
+    word-break: break-word
+
+  &__buttons
+    position: relative
+    width: 100%
+    padding-top: 32px
+    box-sizing: border-box
+    display: flex
+    flex-direction: row
+    gap: 16px
+
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      right: -36px
+      margin: auto
+      width: calc(100% + 72px)
+      height: 1px
+      background-color: rgba($grayDark, 0.5)
+
+  &__button
+    display: flex
+    width: 100%

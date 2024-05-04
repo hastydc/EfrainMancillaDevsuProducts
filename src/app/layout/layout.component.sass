@@ -1,0 +1,15 @@
+@import 'mixins'
+  
+.main
+  position: relative
+
+.content
+  width: 100%
+  height: auto
+  display: flex
+  flex-direction: column
+  box-sizing: border-box
+  padding: 64px
+
+  @include mq('mobile')
+    padding: 32px 16px

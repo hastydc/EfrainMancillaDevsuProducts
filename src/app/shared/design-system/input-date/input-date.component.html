@@ -1,0 +1,11 @@
+<ng-container [formGroup]="form" *ngIf="form && key">
+  <input
+    type="date"
+    class="input"
+    [min]="nowDate"
+    [formControlName]="key"
+    [ngClass]="{
+      'input--error': form.controls[key].invalid && form.controls[key].touched
+    }"
+  />
+</ng-container>

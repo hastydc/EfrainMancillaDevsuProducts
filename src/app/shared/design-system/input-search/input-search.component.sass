@@ -1,0 +1,24 @@
+@import 'vars'
+@import 'mixins'
+  
+.input-search
+  outline: none
+  box-sizing: border-box
+  font-size: 16px
+  padding: 12px 8px
+  border-radius: 8px
+  border: 1px solid $grayDark
+  color: $black
+  min-width: 250px
+  max-width: 100%
+  display: flex
+  transition: $transition
+
+  &:active,
+  &:focus
+    box-shadow: 0px 0px 4px $grayDark
+
+  @include mq('mobile')
+    min-width: inherit
+    width: 100%
+    

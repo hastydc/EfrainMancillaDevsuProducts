@@ -1,0 +1,7 @@
+<input
+  class="input-search"
+  [disabled]="disabled"
+  [placeholder]="('search' | translate) + '...'"
+  [(ngModel)]="value"
+  (ngModelChange)="setValue()"
+/>

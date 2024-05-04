@@ -1,0 +1,17 @@
+<div class="modal">
+  <div class="modal__text">
+    <ng-content select=".modal-text"></ng-content>
+  </div>
+  <div class="modal__buttons">
+    <div class="modal__button">
+      <app-button
+        [primary]="false"
+        [label]="'cancel'"
+        (actionEvent)="cancel()"
+      />
+    </div>
+    <div class="modal__button">
+      <app-button [label]="'confirm'" [mask]="true" (actionEvent)="confirm()" />
+    </div>
+  </div>
+</div>
