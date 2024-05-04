@@ -40,7 +40,7 @@ ng test --code-coverage | y podemos validar el coverage tanto en el coverage/ind
 
 ## -> Link del repo
 
-El link del repo de github es https://github.com/hastydc/EfrainMancillaDevsuProducts
+El link del repo (branch main en github master en bitbucket) de github es https://github.com/hastydc/EfrainMancillaDevsuProducts
 
 ## ---> Notas <---
 
