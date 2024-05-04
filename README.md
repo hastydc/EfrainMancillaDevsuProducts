@@ -34,6 +34,10 @@ Actualmente tengo Node v20.12.2, Angular Cli v17.3.6, Chrome v124.0.6367.119 (am
 
 En src/environments encontramos las variables para ajustar la apiUrl y el authorId necesarios para realizar las pruebas
 
+## -> Compilar proyecto
+
+npm i con las versiones mensionadas
+
 ## -> Correr proyecto
 
 npx ng s | e ingresar a la url segun puerto indicado, en la consola para correrlo local, o bien un build y copiando y pegando el dist generado en algun servidor y asegurandonos de tener correcto el base href en el index.html
