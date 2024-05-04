@@ -28,11 +28,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## -> Versiones
 
-Actualmente tengo Node v20.12.2 y Angular Cli v17.3.6 (ambas versiones las últimas que descargué esta semana porque mi lap agoniza)
+Actualmente tengo Node v20.12.2, Angular Cli v17.3.6, Chrome v124.0.6367.119 (ambas versiones las últimas que descargué esta semana porque mi lap agoniza)
 
 ## -> Correr proyecto
 
-npx ng | s e ingresar a la url segun puerto indicado, en la consola para correrlo local, o bien un build y copiando y pegando el dist generado en algun servidor y asegurandonos de tener correcto el base href en el index.html
+npx ng s | e ingresar a la url segun puerto indicado, en la consola para correrlo local, o bien un build y copiando y pegando el dist generado en algun servidor y asegurandonos de tener correcto el base href en el index.html
 
 ## -> Correr pruebas
 
